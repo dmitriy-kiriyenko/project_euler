@@ -13,5 +13,5 @@ pass_range = piece.zip(*pieces).map { |slice|
 
 passwords = pass_range.reduce { |acc, i| acc.product(i).map(&:flatten) }.map
 texts = passwords.lazy.map { |pass| input.zip(pass.cycle).map { |(c, d)| c^d } }
-best = texts.detect { |decrypt| decrypt.map(&:chr).join.include?('the') }
+best = texts.detect { |text| text.map(&:chr).join.include?('the') }
 puts best.reduce :+

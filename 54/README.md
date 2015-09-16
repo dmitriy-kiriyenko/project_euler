@@ -21,7 +21,7 @@ below). But if two ranks tie, for example, both players have a pair of queens,
 then highest cards in each hand are compared (see example 4 below); if the
 highest cards tie then the next highest cards are compared, and so on.
 
-![Examples](https://www.dropbox.com/s/7m2hedjhsqhptj0/Screenshot%202015-09-15%2010.39.21.png?dl=0)
+![Examples](https://photos-4.dropbox.com/t/2/AAD9KJkgiM87sxuMab-31-0zfKi4Hb_f-_Gr2K9S7W1UNg/12/8790751/png/32x32/1/1442386800/0/2/Screenshot%202015-09-15%2010.39.21.png/CN_FmAQgASACIAMgBCAFIAYgBygCKAc/VGPdQRkIuqWrFrslRDTEVtgDEM2h27NY6-E0L0_y9po?size_mode=5)
 
 The file, [poker.txt](project/resources/p054_poker.txt), contains one-thousand
 random hands dealt to two players. Each line of the file contains ten cards

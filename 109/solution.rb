@@ -1,6 +1,6 @@
 require 'benchmark'
 
-THRESHOLD = 170
+THRESHOLD = 100
 ds = ((2..40).step(2).to_a << 50)
 THROWS = ((0..20).to_a + ds + (3..60).step(3).to_a << 25).sort.each_with_index.to_a
 DOUBLES = ds.sort.each_with_index.to_a

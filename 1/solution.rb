@@ -7,11 +7,11 @@ end
 # This only works for comprime integers
 # For non-comprime instead of product here should be LCM
 def hacky(n1, n2, limit)
-  [n1,n2,-n1*n2].map{|i, n| n = (limit-1)/i; i*n*(n+1)/2 }.reduce(:+)
+  [n1,n2,-n1*n2].map{|i| n = (limit-1)/i; i*n*(n+1)/2 }.reduce(:+)
 end
 
 def correct(n1, n2, limit)
-  [n1,n2,-(n1.lcm(n2))].map{|i, n| n = (limit-1)/i; i*n*(n+1)/2 }.reduce(:+)
+  [n1,n2,-(n1.lcm(n2))].map{|i| n = (limit-1)/i; i*n*(n+1)/2 }.reduce(:+)
 end
 
 def smart(n1, n2, limit)
@@ -22,11 +22,16 @@ def smart(n1, n2, limit)
   }.reduce(:+)/2
 end
 
+def generic(dividers, limit)
+  dividers.flat_map{|i| (1..(limit-1)/i).map{|j| j * i} }.uniq.reduce(:+)
+end
+
 Benchmark.ips do |x|
   x.report("reference") { reference(3, 5, 1000) }
   x.report("hacky") { hacky(3, 5, 1000) }
   x.report("correct") { correct(3, 5, 1000) }
   x.report("smart") { smart(3, 5, 1000) }
+  x.report("generic") { generic([3, 5], 1000) }
 end
 
-puts smart(3, 5, 1000)
+puts correct(3, 5, 1000)
